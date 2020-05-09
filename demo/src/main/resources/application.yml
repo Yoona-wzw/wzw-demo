@@ -1,0 +1,29 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password:
+    hikari: #springboot 2.x 默认数据库连接池
+      maximum-pool-size: 20 #
+      connection-timeout: 60000 #
+      idle-timeout: 60000  #
+      max-lifetime: 60000  #
+      validation-timeout: 3000  #
+      login-timeout: 5 #
+
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate.ddl-auto: update
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect #数据库方言
+
+  #---------redis----------
+  redis:
+    database: 0 #redis数据库索引
