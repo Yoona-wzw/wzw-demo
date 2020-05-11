@@ -1,0 +1,33 @@
+server:
+  port: 8888
+spring:
+  kafka:
+  #kafka server url
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+    #==========================provider===================
+      retries: 1
+      batch-size: 16384 #一个批次的大小 bit
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+    #group id 消费组id
+      group-id: default-consumer-group
+      enable-auto-commit: true  #是否自动提交
+      auto-commit-interval: 1000 #提交间隔时间
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: latest #每次都获取新数据,不会从头消费
+      max-poll-records: 5 #批量拉取得数据量
+      concurrency: 5 #消费线程数
+      session-timeout-ms-config: 15000
+      request-timeout-ms-config: 18000
+      topic: result #消费topic
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: kafkaDemo
+      username: wzw
+      password: 1234
