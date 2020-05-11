@@ -1,6 +1,6 @@
 
 server:
-  port: 12001
+  port: 13001
 spring:
   application:
     name: service-provider

@@ -1,5 +1,5 @@
 server:
-  port: 12000
+  port: 13000
 
 spring:
   application:
@@ -16,9 +16,9 @@ eureka:
     hostname: localhost
 
   client:
-    register-with-eureka: true #本身是注册中心不需要注册(集群为true)
+    register-with-eureka: true #集群为true
     fetch-registry: true
     serviceUrl:
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:13000/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:12000/eureka/
   server:
     enable-self-preservation: false #禁用自我保护机制
