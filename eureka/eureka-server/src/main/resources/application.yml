@@ -1,0 +1,13 @@
+server:
+  port: 12000
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #默认设置下，服务注册中心自己也会将自己作为客户端来尝试注册它自己，所以我们需要禁用它的客户端注册行为
+    fetch-registry: false
