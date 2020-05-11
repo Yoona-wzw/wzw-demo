@@ -24,8 +24,7 @@ public class DateFeignController2 {
     @GetMapping("/date")
     public String getDate(@RequestParam String param){
         RestTemplate restTemplate = new RestTemplate();
-        String res = restTemplate.getForObject("http://localhost:12001/api/test?param={1}", String.class,param);
-		//{1}ÊÇÕ¼Î»·û
+        String res = restTemplate.getForObject("http://localhost:12001/api/test?param="+param, String.class, "");
        // return dateSerivceFeignClient2.consumer(param);
         return res;
     }
